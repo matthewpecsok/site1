@@ -1,22 +1,56 @@
-// Navbar management for IS4460 course website
+// Shared components management for IS4460 course website
 
-async function loadNavbar() {
+async function loadSharedComponents() {
     try {
-        const response = await fetch('navbar.html');
-        const navbarHtml = await response.text();
+        // Load header and navbar in parallel
+        const [headerResponse, navbarResponse] = await Promise.all([
+            fetch('header.html'),
+            fetch('navbar.html')
+        ]);
         
-        // Insert navbar into the page
+        const headerHtml = await headerResponse.text();
+        const navbarHtml = await navbarResponse.text();
+        
+        // Insert header
+        const headerContainer = document.getElementById('header-container');
+        if (headerContainer) {
+            headerContainer.innerHTML = headerHtml;
+            setHeaderSubtitle();
+        }
+        
+        // Insert navbar
         const navContainer = document.getElementById('navbar-container');
         if (navContainer) {
             navContainer.innerHTML = navbarHtml;
-            
-            // Set active state based on current page
             setActiveNavItem();
         }
     } catch (error) {
-        console.error('Error loading navbar:', error);
-        // Fallback: create basic navbar if fetch fails
-        createFallbackNavbar();
+        console.error('Error loading shared components:', error);
+        // Fallback: create basic components if fetch fails
+        createFallbackComponents();
+    }
+}
+
+function setHeaderSubtitle() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const subtitleElement = document.getElementById('header-subtitle');
+    
+    if (subtitleElement) {
+        switch (currentPage) {
+            case 'index.html':
+            case '':
+                subtitleElement.textContent = 'Welcome to your first day of class! We\'re excited to have you here.';
+                subtitleElement.className = 'welcome-message';
+                break;
+            case 'day1.html':
+                subtitleElement.textContent = 'Day 1: HTML & CSS Fundamentals';
+                subtitleElement.className = 'subtitle';
+                break;
+            case 'day2.html':
+                subtitleElement.textContent = 'Day 2: Database Integration';
+                subtitleElement.className = 'subtitle';
+                break;
+        }
     }
 }
 
@@ -51,8 +85,22 @@ function setActiveNavItem() {
     }
 }
 
-function createFallbackNavbar() {
-    // Fallback navbar in case fetch fails
+function createFallbackComponents() {
+    // Fallback header
+    const headerContainer = document.getElementById('header-container');
+    if (headerContainer) {
+        headerContainer.innerHTML = `
+            <header class="header">
+                <div class="university-logo">🏛️ UNIVERSITY OF UTAH</div>
+                <h1 class="course-title">IS 4460</h1>
+                <p class="welcome-message" id="header-subtitle">Welcome to your first day of class! We're excited to have you here.</p>
+                <div class="japanese-flag"></div>
+            </header>
+        `;
+        setHeaderSubtitle();
+    }
+    
+    // Fallback navbar
     const navContainer = document.getElementById('navbar-container');
     if (navContainer) {
         navContainer.innerHTML = `
@@ -66,5 +114,5 @@ function createFallbackNavbar() {
     }
 }
 
-// Load navbar when page loads
-document.addEventListener('DOMContentLoaded', loadNavbar);
+// Load shared components when page loads
+document.addEventListener('DOMContentLoaded', loadSharedComponents);
