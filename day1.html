@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IS 4460 - Day 1: HTML & CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #CC0000 0%, #990000 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(100, 133, 224, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .university-logo {
+            color: #CC0000;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .course-title {
+            color: #CC0000;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-bar a {
+            color: #CC0000;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 20px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar a:hover {
+            background: #CC0000;
+            color: white;
+        }
+
+        .nav-bar a.active {
+            background: #CC0000;
+            color: white;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            color: #CC0000;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .topic-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid #CC0000;
+        }
+
+        .topic-title {
+            color: #CC0000;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .topic-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .topic-list li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .topic-list li::before {
+            content: "🌸";
+            position: absolute;
+            left: 0;
+        }
+
+        .code-demo {
+            background: #2d3748;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .highlight {
+            color: #CC0000;
+            font-weight: bold;
+        }
+
+        .learning-objectives {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2196f3;
+        }
+
+        @media (max-width: 768px) {
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-title {
+                font-size: 28px;
+            }
+
+            .nav-bar a {
+                margin: 5px 10px;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="university-logo">🏛️ UNIVERSITY OF UTAH</div>
+            <h1 class="course-title">IS 4460</h1>
+            <p class="subtitle">Day 1: HTML & CSS Fundamentals</p>
+        </header>
+
+        <nav class="nav-bar">
+            <a href="index.html">🏠 Home</a>
+            <a href="day1.html" class="active">📝 Day 1: HTML/CSS</a>
+            <a href="day2.html">🗄️ Day 2: Databases</a>
+        </nav>
+
+        <div class="content-section">
+            <div class="learning-objectives">
+                <h2 class="section-title">🎯 Learning Objectives</h2>
+                <p>By the end of today's session, you will be able to:</p>
+                <ul class="topic-list">
+                    <li>Understand the structure and purpose of HTML</li>
+                    <li>Create semantic HTML documents</li>
+                    <li>Apply CSS for styling and layout</li>
+                    <li>Use responsive design principles</li>
+                    <li>Implement modern web development practices</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">📚 What We'll Cover Today</h2>
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h3 class="topic-title">HTML Essentials</h3>
+                    <ul class="topic-list">
+                        <li>Document structure & DOCTYPE</li>
+                        <li>Semantic HTML5 elements</li>
+                        <li>Forms and input validation</li>
+                        <li>Accessibility best practices</li>
+                        <li>Meta tags and SEO basics</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3 class="topic-title">CSS Fundamentals</h3>
+                    <ul class="topic-list">
+                        <li>Selectors and specificity</li>
+                        <li>Box model and positioning</li>
+                        <li>Flexbox and Grid layouts</li>
+                        <li>Responsive design with media queries</li>
+                        <li>CSS animations and transitions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="topic-title">💻 Code Example: Basic HTML Structure</h3>
+            <div class="code-demo">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #CC0000;
+            text-align: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;header&gt;
+            &lt;h1&gt;Welcome to Web Development&lt;/h1&gt;
+        &lt;/header&gt;
+        &lt;main&gt;
+            &lt;p&gt;This is a simple HTML page with embedded CSS.&lt;/p&gt;
+        &lt;/main&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+
+            <h3 class="topic-title">🎨 CSS Grid Example</h3>
+            <div class="code-demo">.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}</div>
+
+            <h2 class="section-title">🏃‍♂️ Hands-On Activities</h2>
+            <div class="topic-card">
+                <h3 class="topic-title">Lab Exercise 1: Personal Portfolio Page</h3>
+                <p>Create a personal portfolio webpage that includes:</p>
+                <ul class="topic-list">
+                    <li>Semantic HTML structure (header, nav, main, footer)</li>
+                    <li>CSS Grid or Flexbox layout</li>
+                    <li>Responsive design for mobile devices</li>
+                    <li>At least 3 different font weights and sizes</li>
+                    <li>A color scheme inspired by University of Utah branding</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">🌟 Pro Tips</h2>
+            <div class="learning-objectives">
+                <ul class="topic-list">
+                    <li><span class="highlight">Always validate your HTML</span> at validator.w3.org</li>
+                    <li><span class="highlight">Use semantic elements</span> for better accessibility and SEO</li>
+                    <li><span class="highlight">Mobile-first approach</span> - design for small screens first</li>
+                    <li><span class="highlight">CSS custom properties</span> (variables) make maintaining styles easier</li>
+                    <li><span class="highlight">Practice, practice, practice!</span> The best way to learn is by building</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
