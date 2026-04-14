@@ -4,225 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IS 4460 - Day 2: Database Integration</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #CC0000 0%, #990000 100%);
-            min-height: 100vh;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background: rgba(100, 133, 224, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .university-logo {
-            color: #CC0000;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .course-title {
-            color: #CC0000;
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 24px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .nav-bar {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-bar a {
-            color: #CC0000;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 20px;
-            padding: 8px 16px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-bar a:hover {
-            background: #CC0000;
-            color: white;
-        }
-
-        .nav-bar a.active {
-            background: #CC0000;
-            color: white;
-        }
-
-        .content-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        .section-title {
-            color: #CC0000;
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .topic-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .topic-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 10px;
-            padding: 25px;
-            border-left: 5px solid #28a745;
-        }
-
-        .database-card {
-            border-left: 5px solid #17a2b8;
-        }
-
-        .topic-title {
-            color: #CC0000;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .topic-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .topic-list li {
-            padding: 5px 0;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .topic-list li::before {
-            content: "🗄️";
-            position: absolute;
-            left: 0;
-        }
-
-        .code-demo {
-            background: #2d3748;
-            color: #e2e8f0;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-        }
-
-        .sql-demo {
-            background: #1a365d;
-            border-left: 4px solid #3182ce;
-        }
-
-        .json-demo {
-            background: #2d2d2d;
-            border-left: 4px solid #fbbf24;
-        }
-
-        .highlight {
-            color: #CC0000;
-            font-weight: bold;
-        }
-
-        .learning-objectives {
-            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border-left: 5px solid #4caf50;
-        }
-
-        .database-diagram {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: center;
-            border: 2px solid #17a2b8;
-        }
-
-        .db-table {
-            display: inline-block;
-            background: #f8f9fa;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            margin: 10px;
-            padding: 15px;
-            min-width: 150px;
-        }
-
-        .db-table h4 {
-            background: #17a2b8;
-            color: white;
-            padding: 8px;
-            margin: -15px -15px 10px -15px;
-            border-radius: 6px 6px 0 0;
-            font-size: 14px;
-        }
-
-        .db-field {
-            font-size: 12px;
-            margin: 4px 0;
-            padding: 2px 0;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        @media (max-width: 768px) {
-            .topic-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .course-title {
-                font-size: 28px;
-            }
-
-            .nav-bar a {
-                margin: 5px 10px;
-                display: inline-block;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -239,15 +21,15 @@
         </nav>
 
         <div class="content-section">
-            <div class="learning-objectives">
+            <div class="learning-objectives green">
                 <h2 class="section-title">🎯 Learning Objectives</h2>
                 <p>By the end of today's session, you will be able to:</p>
                 <ul class="topic-list">
-                    <li>Understand relational database concepts</li>
-                    <li>Write basic SQL queries</li>
-                    <li>Connect databases to web applications</li>
-                    <li>Implement CRUD operations</li>
-                    <li>Handle database security best practices</li>
+                    <li class="database">Understand relational database concepts</li>
+                    <li class="database">Write basic SQL queries</li>
+                    <li class="database">Connect databases to web applications</li>
+                    <li class="database">Implement CRUD operations</li>
+                    <li class="database">Handle database security best practices</li>
                 </ul>
             </div>
 
@@ -256,22 +38,22 @@
                 <div class="topic-card database-card">
                     <h3 class="topic-title">Database Fundamentals</h3>
                     <ul class="topic-list">
-                        <li>Relational database concepts</li>
-                        <li>Tables, rows, and columns</li>
-                        <li>Primary and foreign keys</li>
-                        <li>Normalization principles</li>
-                        <li>Entity-Relationship diagrams</li>
+                        <li class="database">Relational database concepts</li>
+                        <li class="database">Tables, rows, and columns</li>
+                        <li class="database">Primary and foreign keys</li>
+                        <li class="database">Normalization principles</li>
+                        <li class="database">Entity-Relationship diagrams</li>
                     </ul>
                 </div>
 
                 <div class="topic-card">
                     <h3 class="topic-title">SQL Essentials</h3>
                     <ul class="topic-list">
-                        <li>SELECT, INSERT, UPDATE, DELETE</li>
-                        <li>WHERE clauses and conditions</li>
-                        <li>JOINs and relationships</li>
-                        <li>Aggregate functions</li>
-                        <li>Subqueries and views</li>
+                        <li class="database">SELECT, INSERT, UPDATE, DELETE</li>
+                        <li class="database">WHERE clauses and conditions</li>
+                        <li class="database">JOINs and relationships</li>
+                        <li class="database">Aggregate functions</li>
+                        <li class="database">Subqueries and views</li>
                     </ul>
                 </div>
             </div>
@@ -336,22 +118,22 @@ HAVING COUNT(*) > 3;</div>
                 <div class="topic-card">
                     <h3 class="topic-title">Backend Connection</h3>
                     <ul class="topic-list">
-                        <li>Database drivers and connectors</li>
-                        <li>Connection pooling</li>
-                        <li>Environment variables</li>
-                        <li>Error handling</li>
-                        <li>Connection security</li>
+                        <li class="database">Database drivers and connectors</li>
+                        <li class="database">Connection pooling</li>
+                        <li class="database">Environment variables</li>
+                        <li class="database">Error handling</li>
+                        <li class="database">Connection security</li>
                     </ul>
                 </div>
 
                 <div class="topic-card">
                     <h3 class="topic-title">API Design</h3>
                     <ul class="topic-list">
-                        <li>RESTful API endpoints</li>
-                        <li>HTTP methods (GET, POST, PUT, DELETE)</li>
-                        <li>JSON data format</li>
-                        <li>Status codes and responses</li>
-                        <li>API documentation</li>
+                        <li class="database">RESTful API endpoints</li>
+                        <li class="database">HTTP methods (GET, POST, PUT, DELETE)</li>
+                        <li class="database">JSON data format</li>
+                        <li class="database">Status codes and responses</li>
+                        <li class="database">API documentation</li>
                     </ul>
                 </div>
             </div>
@@ -407,11 +189,11 @@ async function loadStudents() {
                 <h3 class="topic-title">Lab Exercise 2: Student Portal Database</h3>
                 <p>Create a student information system that includes:</p>
                 <ul class="topic-list">
-                    <li>Design a database schema with at least 3 related tables</li>
-                    <li>Write SQL queries to retrieve student information</li>
-                    <li>Create a web interface to display student data</li>
-                    <li>Implement search and filter functionality</li>
-                    <li>Add forms for creating and updating records</li>
+                    <li class="database">Design a database schema with at least 3 related tables</li>
+                    <li class="database">Write SQL queries to retrieve student information</li>
+                    <li class="database">Create a web interface to display student data</li>
+                    <li class="database">Implement search and filter functionality</li>
+                    <li class="database">Add forms for creating and updating records</li>
                 </ul>
             </div>
 
@@ -432,11 +214,11 @@ async function loadStudents() {
                 <h3 class="topic-title">Homework Assignment</h3>
                 <p>Complete the following tasks before our next class:</p>
                 <ul class="topic-list">
-                    <li>Set up a local database (MySQL, PostgreSQL, or SQLite)</li>
-                    <li>Create the student management schema from today's examples</li>
-                    <li>Insert sample data for testing</li>
-                    <li>Practice writing queries for different scenarios</li>
-                    <li>Read about database indexing and performance optimization</li>
+                    <li class="database">Set up a local database (MySQL, PostgreSQL, or SQLite)</li>
+                    <li class="database">Create the student management schema from today's examples</li>
+                    <li class="database">Insert sample data for testing</li>
+                    <li class="database">Practice writing queries for different scenarios</li>
+                    <li class="database">Read about database indexing and performance optimization</li>
                 </ul>
             </div>
         </div>
